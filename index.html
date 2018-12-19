@@ -19,18 +19,19 @@
             <div id="game">
                 <h2>Obscure Office Trivia</h2>
                 <p id="timeRemaining" class="lead">Time Remaining: <span id="timer">10</span> seconds</p>
-                <p id="question" class="lead"></p>
-            </div>
-            <div id="results">
-                <p>Correct: <span id="correct"></span></p>
-            </div>
-
-            <div class="row">
                 <div class="col-md-12 button">
                     <button id="start" class="btn btn-info">Start Quiz!</button>
                 </div>
+            </div>
+            
+            <div class="row">
+                <p id="question" class="col-md-12 lead"></p>
                 <div class="col-md-12 choices">
                     <!-- This is where options to choose will appear -->
+                </div>
+                <div class="col-md-4" id="results">
+                    <p>Correct: <span id="correct"></span></p>
+                    <p>Incorrect: <span id="incorrect"></span></p>
                 </div>
             </div>
         </div>
