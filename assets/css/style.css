@@ -1,8 +1,12 @@
 
-.choices {
+.button {
     text-align: center;
 }
 
 #game {
+    text-align: center;
+}
+
+.choices {
     text-align: center;
 }
