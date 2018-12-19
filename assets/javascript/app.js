@@ -7,53 +7,51 @@ $(document).ready(function() {
     var time= 10;
     var timerOn = false;
     var intervalId;
+    $("#results").hide();
    
 
-    var question= {
-        q1: "What is the secret ingredient in Kevin's Famous Chili recipe?", 
-        q2: "How many pounds does Angela weigh?",
-        q3: "Which male character regularly uses the female restroom?",
-        q4: "What band poster is on the wall in Dwight's Daycare?",
-        q5: "Who from the office attends Pam's art show?",
-        q6: "How did Michael break the glass door in his condo?", 
-        q7: "Where was Jim and Pam's first kiss?",
-        q8: "What was the name of the show Michael appeared on as a child?",
-        q9: "How many push-ups can Michael do?",
-        q10: "What position was Kevin applying for when he was hired?"
-    }
+    questionArray= [
+        "What is the secret ingredient in Kevin's Famous Chili recipe?", 
+        "How many pounds does Angela weigh?",
+        "Which male character regularly uses the female restroom?",
+        "What band poster is on the wall in Dwight's Daycare?",
+        "Who from the office attends Pam's art show?",
+        "How did Michael break the glass door in his condo?", 
+        "Where was Jim and Pam's first kiss?",
+        "What was the name of the show Michael appeared on as a child?",
+        "How many push-ups can Michael do?",
+        "What position was Kevin applying for when he was hired?"
+    ]
 
-    var answer= {
-        a1: "Undercooked onions",
-        a2: "82",
-        a3: "Creed",
-        a4: "Insane Clown Posse",
-        a5: "Roy, Oscar, Michael",
-        a6: "Ran through it to catch the ice cream truck",
-        a7: "Chili's",
-        a8: "Fundle Bundle",
-        a9: "25, and 1 girl push-up",
-        a10: "Warehouse"
-    }
+    var answerArray= [
+        "Undercooked onions",
+        "82",
+        "Creed",
+        "Insane Clown Posse",
+        "Roy, Oscar, Michael",
+        "Ran through it to catch the ice cream truck",
+        "Chili's",
+        "Fundle Bundle",
+        "25, and 1 girl push-up",
+        "Warehouse"
+    ]
 
-    var options= {
-        o1: ["Special sauce", "Undercooked  onions", "Fresh tomatoes", "Mexican beans"],
-        o2: ["85", "79", "90", "82"],
-        o3: ["Creed", "Gabe", "Ryan", "Toby"],
-        o4: ["U2", "Insane Clown Posse", "Scrantonicity", "The Rolling Stones"],
-        o5: ["Oscar, Andy, Jim", "Roy, Oscar, Michael", "Jim, Kelly, Ryan", "Creed, Meridith, Phyllis"],
-        o6: ["Ran through it to catch the ice cream truck", "Threw a dundie award at it", "Playing basketball", "Practicing his golf swing"],
-        o7: ["At Jim's desk after Casino Night", "At a gas station", "Chili's", "A hospital"],
-        o8: ["Barney and Friends", "Blues Clues", "Larry's Learning Time", "Fundle Bundle"],
-        o9: ["25, and 1 girl push-up", "26", "12", "21"],
-        o10: ["Sales", "Warehouse", "Human Resources", "Secretary"],
-    }
+    var optionsArray= [
+        ["Special sauce", "Undercooked  onions", "Fresh tomatoes", "Mexican beans"],
+        ["85", "79", "90", "82"],
+        ["Creed", "Gabe", "Ryan", "Toby"],
+        ["U2", "Insane Clown Posse", "Scrantonicity", "The Rolling Stones"],
+        ["Oscar, Andy, Jim", "Roy, Oscar, Michael", "Jim, Kelly, Ryan", "Creed, Meridith, Phyllis"],
+        ["Ran through it to catch the ice cream truck", "Threw a dundie award at it", "Playing basketball", "Practicing his golf swing"],
+        ["At Jim's desk after Casino Night", "At a gas station", "Chili's", "A hospital"],
+        ["Barney and Friends", "Blues Clues", "Larry's Learning Time", "Fundle Bundle"],
+        ["25, and 1 girl push-up", "26", "12", "21"],
+        ["Sales", "Warehouse", "Human Resources", "Secretary"],
+    ]
 
-    $("#start").on("click", function() {
-        $("#question").text(question.q1);
-        console.log(answer.a1);
-        $(".choices").text(options.o1);
-        startGame();
-        $("#start").hide();
+    $("#startBtn").on("click", function() {
+        $("#startBtn").hide();
+        startGame();   
     });
 
     function startGame() {
@@ -62,6 +60,7 @@ $(document).ready(function() {
         time= 10;
         timerOn= true;
         runTime();
+        newQuestion();
     }
 
     function runTime() {
@@ -86,19 +85,33 @@ $(document).ready(function() {
     }
 
     function continueGame() {
-        incorrect++;
         time = 10;
         $("#timer").html(time);
         runTime();
-        //also, show next question
+        console.log("incorrect: " + incorrect);
+        newQuestion();
     }
 
     function newQuestion() {
-        var quizQuestion = 
+        var quizQuestion = (questionArray);
+        $("#question").text(quizQuestion);
+
+        for (i = 0; i < optionsArray.length; i++) {
+            var btn = $("<button>");
+            btn.addClass("option");
+            btn.attr(optionsArray[i]);
+            btn.text(optionsArray);
+            $("#choices").append(btn);
+        }
     }
 
 
-
+    // To do list: 
+    // 1. show answer options as stacked buttons
+    // 2. loop through questions and options
+    // 3. build check answer function to check the selected answer against the correct answer when an answer button is clicked.
+    // 4. Link .ajax API to show a gif after 1) time runs out, 2) each correct answer, 3) when game is Over. 
+    
 
 
 

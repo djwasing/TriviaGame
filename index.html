@@ -20,16 +20,16 @@
                 <h2>Obscure Office Trivia</h2>
                 <p id="timeRemaining" class="lead">Time Remaining: <span id="timer">10</span> seconds</p>
                 <div class="col-md-12 button">
-                    <button id="start" class="btn btn-info">Start Quiz!</button>
+                    <button id="startBtn" class="btn btn-info">Start Quiz!</button>
                 </div>
             </div>
             
-            <div class="row">
+            <div class="row" id="gameRow">
                 <p id="question" class="col-md-12 lead"></p>
-                <div class="col-md-12 choices">
+                <div class="col-md-12 choices" id="choices">
                     <!-- This is where options to choose will appear -->
                 </div>
-                <div class="col-md-4" id="results">
+                <div class="col-md-12" id="results">
                     <p>Correct: <span id="correct"></span></p>
                     <p>Incorrect: <span id="incorrect"></span></p>
                 </div>
