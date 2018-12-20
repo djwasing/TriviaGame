@@ -88,7 +88,9 @@ $(document).ready(function () {
     outOfTimeArr = [
         "https://media.giphy.com/media/hXMTtBCvMXUsg/giphy.gif", 
         "https://media.giphy.com/media/20PsG3AnzQo1O/giphy.gif",
-        "https://media.giphy.com/media/1zYwlqyR2rg6A/giphy.gif"
+        "https://media.giphy.com/media/1zYwlqyR2rg6A/giphy.gif", 
+        "https://media.giphy.com/media/keuNoOuTb1D4A/giphy.gif",
+        "https://media.giphy.com/media/SW3PNayoSGXao/giphy.gif"
     ]
 
 
@@ -164,7 +166,7 @@ $(document).ready(function () {
         $("#question").text(question)
         for (i = 0; i < option.length; i++) {
             var btn = $("<button>");
-            btn.addClass("option");
+            btn.addClass("option btn btn-light");
             btn.attr("choice", option[i]);
             btn.text(option[i]);
             $("#choices").append(btn);

@@ -39,7 +39,7 @@
     margin: 0 auto;
     margin-top: 15px;
     border-radius: 30px;
-    background-color: #2b1d1b;
+    background-color: #271d1c;
     color: white;
 }
 
@@ -56,5 +56,9 @@
 
 #styleRow {
     margin-bottom: -55px;
+}
+
+.option {
+    margin-right: 15px;
 }
 
