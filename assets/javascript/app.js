@@ -20,9 +20,12 @@ $(document).ready(function () {
         "Who from the office attends Pam's art show?",
         "How did Michael break the glass door in his condo?",
         "Where was Jim and Pam's first kiss?",
-        "What was the name of the show Michael appeared on as a child?",
+        "What was the name of the TV show Michael appeared on as a child?",
         "How many push-ups can Michael do?",
-        "What position was Kevin applying for when he was hired?"
+        "What position was Kevin applying for when he was hired?",
+        "What is the name of the better 'Alfredos' pizza restaurant?",
+        "What boy name does Michael want to name Jan's baby?",
+        "What soccer team was Jim on in the 4th grade?"
     ]
 
     var answerArray = [
@@ -35,11 +38,14 @@ $(document).ready(function () {
         "Chili's",
         "Fundle Bundle",
         "25, and 1 girl push-up",
-        "Warehouse"
+        "Warehouse",
+        "Alfredos Pizza Cafe",
+        "Chevy",
+        "The Orange Team"
     ]
 
     var optionsArray = [
-        ["Special sauce", "Undercooked onions", "Fresh tomatoes", "Mexican beans"],
+        ["Special sauce", "Undercooked onions", "Fresh tomatoes", "Black beans"],
         ["85", "79", "90", "82"],
         ["Creed", "Gabe", "Ryan", "Toby"],
         ["U2", "Insane Clown Posse", "Scrantonicity", "The Rolling Stones"],
@@ -48,8 +54,43 @@ $(document).ready(function () {
         ["At Jim's desk after Casino Night", "At a gas station", "Chili's", "A hospital"],
         ["Barney and Friends", "Blues Clues", "Larry's Learning Time", "Fundle Bundle"],
         ["25, and 1 girl push-up", "26", "12", "21"],
-        ["Sales", "Warehouse", "Human Resources", "Secretary"],
+        ["Sales", "Warehouse", "Human Resources", "Security Guard"],
+        ["Alfredos", "Alfredos Pizza", "Alfredos Pizza Cafe", "Pizza by Alfredo"],
+        ["Farley", "Robin", "Michael Jr.", "Chevy"],
+        ["The Orange Team", "The Red Team", "The Blue Team", "The Green Team"]
     ]
+
+    correctGifArr = [
+        "https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif",
+        "https://media.giphy.com/media/Is1O1TWV0LEJi/giphy.gif",
+        "https://media.giphy.com/media/KBfKueAjIJV8Q/giphy.gif",
+        "https://media.giphy.com/media/6cFcUiCG5eONW/giphy.gif",
+        "https://media.giphy.com/media/t3Mzdx0SA3Eis/giphy.gif",
+        "https://media.giphy.com/media/yltGOJQBMBn7W/giphy.gif",
+        "https://media.giphy.com/media/vgUFOWBwBkziE/giphy.gif",
+        "https://media.giphy.com/media/5wWf7GR2nhgamhRnEuA/giphy.gif",
+        "https://media.giphy.com/media/8VrtCswiLDNnO/giphy.gif"
+    ]
+
+    incorrectGifArr = [
+        "https://media.giphy.com/media/4cuyucPeVWbNS/giphy.gif",
+        "https://media.giphy.com/media/12XMGIWtrHBl5e/giphy.gif",
+        "https://media.giphy.com/media/zMQcrvqjkC9d6/giphy.gif",
+        "https://media.giphy.com/media/ly8G39g1ujpNm/giphy.gif",
+        "https://media.giphy.com/media/B37cYPCruqwwg/giphy.gif",
+        "https://media.giphy.com/media/JoePLWxLD7cGc/giphy.gif",
+        "https://media.giphy.com/media/rhnTF5JSqYLmM/giphy.gif",
+        "https://media.giphy.com/media/yoJC2oCKxTLNrr30Jy/giphy.gif",
+        "https://media.giphy.com/media/3og0IU2CCxcCsu0bgk/giphy.gif",
+        "https://media.giphy.com/media/KOUp2nbwHm7vy/giphy.gif"
+    ]
+
+    outOfTimeArr = [
+        "https://media.giphy.com/media/hXMTtBCvMXUsg/giphy.gif", 
+        "https://media.giphy.com/media/20PsG3AnzQo1O/giphy.gif",
+        "https://media.giphy.com/media/1zYwlqyR2rg6A/giphy.gif"
+    ]
+
 
     $("#startBtn").on("click", function () {
         $("#startBtn").hide();
@@ -74,25 +115,37 @@ $(document).ready(function () {
         }  
     }
 
+    function clearMessage() {
+        $(".messageDiv").empty();
+    }
+
     function countDown() {
         time--;
         $("#timer").html(time);
         if (time == 0) {
-            alert("Out of time. Press OK to continue game");
             incorrect++;
             stopTime();
+            $(".messageDiv").text("You ran out of time. Get ready for the next question!");
             $("#question").empty();
             $("#choices").empty();
+            var outOfTimeGif = $("<img>");
+            var gifSrc = outOfTimeArr[Math.floor(Math.random()*outOfTimeArr.length)];
+            outOfTimeGif.attr("src", gifSrc);
+            outOfTimeGif.appendTo(".gifArea");
             if (counter < questionArray.length) {
                 counter++;
             }
+            setTimeout(function() {
+                clearGif()
+                clearMessage()
+                continueGame()
+            }, 1000 * 5);
         }
     }
 
     function stopTime() {
         clearInterval(intervalId);
         $("#timer").html(time);
-        setTimeout(continueGame, 1000);
     }
 
     function continueGame() {
@@ -118,6 +171,10 @@ $(document).ready(function () {
         }  
     }
 
+    function clearGif() {
+        $(".gifArea").empty();
+    }
+
     $(document).on("click", ".option", function() {             //target created button
         var userAnswer = $(this).attr("choice");
         correctAnswer = answerArray[counter];
@@ -128,6 +185,14 @@ $(document).ready(function () {
             stopTime();
             $("#question").empty();
             $("#choices").empty();
+            var rightGif = $("<img>");
+            var gifSrc = correctGifArr[Math.floor(Math.random()*correctGifArr.length)];
+            rightGif.attr("src", gifSrc);
+            rightGif.appendTo(".gifArea");
+            setTimeout(function() {
+                clearGif()
+                continueGame()
+            }, 1000 * 5);
             if (counter < questionArray.length) {
                 counter++;
             }
@@ -137,6 +202,14 @@ $(document).ready(function () {
             stopTime();
             $("#question").empty();
             $("#choices").empty();
+            var wrongGif = $("<img>");
+            var gifSrc = incorrectGifArr[Math.floor(Math.random()*incorrectGifArr.length)];
+            wrongGif.attr("src", gifSrc);
+            wrongGif.appendTo(".gifArea");
+            setTimeout(function() {
+                clearGif()
+                continueGame()
+            }, 1000 * 5);
             if (counter < questionArray.length) {
                 counter++;
             }
@@ -150,6 +223,7 @@ $(document).ready(function () {
             stopTime();
         }
             
+        
 
     })
 

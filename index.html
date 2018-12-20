@@ -13,36 +13,55 @@
 </head>
 
 <body>
- 
-    <div class="jumbotron jumbotron-fluid">
+
+    <div class="jumbotron" id="jumbotron">
         <div class="container">
-            <div id="game">
-                <h2>Obscure Office Trivia</h2>
+            <div class="row container" id="game">
+                <h1>Trivia</h1> 
                 <p id="timeRemaining" class="lead">Time Remaining: <span id="timer">10</span> seconds</p>
-                <div class="col-md-12 button">
-                    <button id="startBtn" class="btn btn-info">Start Quiz!</button>
-                </div>
             </div>
-            
+            <div class="row">
+
+
+                <!-- <div class="container col-md-4" id="imgArea"></div> -->
+            </div>
+
             <div class="row" id="gameRow">
-                <p id="question" class="col-md-12 lead">   </p>
+                <div class="col-md-12 button">
+                    <button id="startBtn" class="btn btn-lg btn-light">Start Quiz!</button>
+                </div>
+                <p id="question" class="col-md-12 lead"> </p>
                 <div class="col-md-12 choices" id="choices">
                     <!-- This is where options to choose will appear -->
                 </div>
+                <div class="messageDiv"></div>
+                <div class="container gifArea" id="gifArea"></div>
                 <div class="col-md-12" id="results">
-                    <p>Correct: <span id="correct"></span></p>
-                    <p>Incorrect: <span id="incorrect"></span></p>
+                    <p>You guessed <span id="correct"></span> correct!</p>
+                    <p>You had <span id="incorrect"></span> wrong</p>
+                    <p>You performed well. That's what she said.</p>
                 </div>
+            </div>
+
+            <div class="row d-flex justify-content-between align-bottom" id="styleRow">
+                <div id="words">
+                    The Office
+                </div>
+                <img id="officeImg" src="assets/images/officeImg.jpg" height="180px">
             </div>
         </div>
 
+
     </div>
 
+    <!-- how can i restrict the size of the gifs? -->
 
 
 
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
     <script src="assets/javascript/app.js"></script>
 </body>
 
