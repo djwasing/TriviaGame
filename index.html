@@ -13,7 +13,7 @@
 </head>
 
 <body>
- 
+
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
             <div id="game">
@@ -23,26 +23,114 @@
                     <button id="startBtn" class="btn btn-info">Start Quiz!</button>
                 </div>
             </div>
-            
-            <div class="row" id="gameRow">
-                <p id="question" class="col-md-12 lead"></p>
-                <div class="col-md-12 choices" id="choices">
-                    <!-- This is where options to choose will appear -->
-                </div>
-                <div class="col-md-12" id="results">
-                    <p>Correct: <span id="correct"></span></p>
-                    <p>Incorrect: <span id="incorrect"></span></p>
-                </div>
-            </div>
         </div>
+    </div>
 
+    <div class="container">
+        <div class="col-md-6 container">
+            <p id="question" class="lead">What is the secret ingredient in Kevin's Famous Chili recipe?</p>
+        </div>
+        <div class="col-md-12 choices" id="choices">
+            <button class="btn btn-info">Special sauce</button>
+            <button class="btn btn-info correct">Undercooked onions</button>
+            <button class="btn btn-info">Fresh tomatoes</button>
+            <button class="btn btn-info">Black beans</button>
+        </div>
+        <div class="col-md-6 container">
+            <p id="question" class="lead">How many pounds does Angela weigh?</p>
+        </div>
+        <div class="col-md-12 choices" id="choices">
+            <button class="btn btn-info">85</button>
+            <button class="btn btn-info">79</button>
+            <button class="btn btn-info">90</button>
+            <button class="btn btn-info correct">82</button>
+        </div>
+        <div class="col-md-6 container">
+        <p id="question" class="lead">Which male character regularly uses the female restroom?</p>
+        </div>
+        <div class="col-md-12 choices" id="choices">
+            <button class="btn btn-info correct">Creed</button>
+            <button class="btn btn-info">Gabe</button>
+            <button class="btn btn-info">Ryan</button>
+            <button class="btn btn-info">Toby</button>
+        </div>
+        <div class="col-md-6 container">
+        <p id="question" class="lead">What band poster is on the wall in Dwight's Daycare?</p>
+        </div>
+        <div class="col-md-12 choices" id="choices">
+            <button class="btn btn-info">U2</button>
+            <button class="btn btn-info correct">Insane Clown Posse</button>
+            <button class="btn btn-info">Scrantonicity</button>
+            <button class="btn btn-info">The Rolling Stones</button>
+        </div>
+        <div class="col-md-6 container">
+        <p id="question" class="lead">Who from the office attends Pam's art show?</p>
+        </div>
+        <div class="col-md-12 choices" id="choices">
+            <button class="btn btn-info">Oscar, Andy, Jim</button>
+            <button class="btn btn-info correct">Roy, Oscar, Michael</button>
+            <button class="btn btn-info">Jim, Kelly, Ryan</button>
+            <button class="btn btn-info">Creed, Meredith, Phyllis</button>
+        </div>
+        <div class="col-md-6 container">
+        <p id="question" class="lead">How did Michael break the glass door in his condo?</p>
+        </div>
+        <div class="col-md-12 choices" id="choices">
+            <button class="btn btn-info correct">Ran through it to catch the ice cream truck</button>
+            <button class="btn btn-info">Threw a Dundie Award at it</button>
+            <button class="btn btn-info">Playing Basketball</button>
+            <button class="btn btn-info">Practicing his golf swing</button>
+        </div>
+        <div class="col-md-6 container">
+        <p id="question" class="lead">Where was Jim and Pam's first kiss?</p>
+        </div>
+        <div class="col-md-12 choices" id="choices">
+            <button class="btn btn-info">At Jim's desk after Casino Night</button>
+            <button class="btn btn-info">At a gas station</button>
+            <button class="btn btn-info correct">Chili's during the Dundie Awards</button>
+            <button class="btn btn-info">A hospital</button>
+        </div>
+        <div class="col-md-6 container">
+        <p id="question" class="lead">What was the name of the show Michael appeared on as a child?</p>
+        </div>
+        <div class="col-md-12 choices" id="choices">
+            <button class="btn btn-info">Barney and Friends</button>
+            <button class="btn btn-info">Blues Clues</button>
+            <button class="btn btn-info">Larry's Learning Time</button>
+            <button class="btn btn-info correct">Fundle Bundle</button>
+        </div>
+        <div class="col-md-6 container">
+        <p id="question" class="lead">How many push-ups can Michael do?</p>
+        </div>
+        <div class="col-md-12 choices" id="choices">
+            <button class="btn btn-info correct">25, and 1 girl push-up</button>
+            <button class="btn btn-info">26</button>
+            <button class="btn btn-info">12</button>
+            <button class="btn btn-info">21</button>
+        </div>
+        <div class="col-md-6 container">
+        <p id="question" class="lead">What position was Kevin applying for when he was hired?</p>
+        </div>
+        <div class="col-md-12 choices" id="choices">
+            <button class="btn btn-info">Sales</button>
+            <button class="btn btn-info correct">Warehouse</button>
+            <button class="btn btn-info">Human Resources</button>
+            <button class="btn btn-info">Secretary</button>
+        </div>
+    </div>
+    <div class="col-md-12" id="results">
+        <p>Correct: <span id="correct"></span></p>
+        <p>Incorrect: <span id="incorrect"></span></p>
+    </div>
     </div>
 
 
 
 
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
     <script src="assets/javascript/app.js"></script>
 </body>
 

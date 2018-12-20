@@ -9,6 +9,7 @@
 
 .choices {
     text-align: center;
+    margin-bottom: 20px;
 }
 
 #results {
@@ -17,4 +18,9 @@
 
 #question {
     text-align: center;
+    font-weight: bold;
+}
+
+#gameRow {
+    margin: 0 auto;
 }
