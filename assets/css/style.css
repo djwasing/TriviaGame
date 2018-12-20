@@ -1,4 +1,6 @@
-
+.body {
+    background-color: #271d1c;
+}
 
 .button {
     text-align: center;
@@ -27,7 +29,7 @@
 
 #gameRow {
     justify-content: center;
-    height: 250px;
+    height: 35%;
 }
 
 .messageDiv {
@@ -39,6 +41,7 @@
     width: 95%;
     margin: 0 auto;
     margin-top: 15px;
+    border: white solid 3px;
     border-radius: 30px;
     background-color: #271d1c;
     color: white;
@@ -61,5 +64,9 @@
 
 .option {
     margin-right: 15px;
+}
+
+#timeremaining {
+    margin-bottom: 0;
 }
 

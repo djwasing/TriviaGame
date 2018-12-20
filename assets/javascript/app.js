@@ -26,7 +26,8 @@ $(document).ready(function () {
         "What is the name of the better 'Alfredos' pizza restaurant?",
         "What boy name does Michael want to name Jan's baby?",
         "What soccer team was Jim on in the 4th grade?", 
-        "What was Martin's crime that sent him to prison?"
+        "What was Martin's crime that sent him to prison?",
+        "Where does Jim say you can buy a 'Gaydar'?"
     ]
 
     var answerArray = [
@@ -43,7 +44,8 @@ $(document).ready(function () {
         "Alfredos Pizza Cafe",
         "Chevy",
         "The Orange Team",
-        "Insider Trading"
+        "Insider Trading",
+        "Sharper Image"
     ]
 
     var optionsArray = [
@@ -59,8 +61,9 @@ $(document).ready(function () {
         ["Sales", "Warehouse", "Human Resources", "Security Guard"],
         ["Alfredos", "Alfredos Pizza", "Alfredos Pizza Cafe", "Pizza by Alfredo"],
         ["Farley", "Robin", "Michael Jr.", "Chevy"],
-        ["The Orange Team", "The Red Team", "The Blue Team", "The Green Team"]
-        ["Pushing someone on the playground", "Kidnapping the President's son", "Insider Trading", "Stealing office supplies"]
+        ["The Orange Team", "The Red Team", "The Blue Team", "The Green Team"],
+        ["Pushing someone on the playground", "Kidnapping the President's son", "Insider Trading", "Stealing office supplies"], 
+        ["Sharper Image", "Brookstone", "Skymall", "Best Buy"]
     ]
 
     correctGifArr = [
