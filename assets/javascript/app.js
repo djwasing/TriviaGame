@@ -25,7 +25,8 @@ $(document).ready(function () {
         "What position was Kevin applying for when he was hired?",
         "What is the name of the better 'Alfredos' pizza restaurant?",
         "What boy name does Michael want to name Jan's baby?",
-        "What soccer team was Jim on in the 4th grade?"
+        "What soccer team was Jim on in the 4th grade?", 
+        "What was Martin's crime that sent him to prison?"
     ]
 
     var answerArray = [
@@ -41,7 +42,8 @@ $(document).ready(function () {
         "Warehouse",
         "Alfredos Pizza Cafe",
         "Chevy",
-        "The Orange Team"
+        "The Orange Team",
+        "Insider Trading"
     ]
 
     var optionsArray = [
@@ -58,6 +60,7 @@ $(document).ready(function () {
         ["Alfredos", "Alfredos Pizza", "Alfredos Pizza Cafe", "Pizza by Alfredo"],
         ["Farley", "Robin", "Michael Jr.", "Chevy"],
         ["The Orange Team", "The Red Team", "The Blue Team", "The Green Team"]
+        ["Pushing someone on the playground", "Kidnapping the President's son", "Insider Trading", "Stealing office supplies"]
     ]
 
     correctGifArr = [
@@ -86,9 +89,9 @@ $(document).ready(function () {
     ]
 
     outOfTimeArr = [
-        "https://media.giphy.com/media/hXMTtBCvMXUsg/giphy.gif", 
+        "https://media.giphy.com/media/hXMTtBCvMXUsg/giphy.gif",
         "https://media.giphy.com/media/20PsG3AnzQo1O/giphy.gif",
-        "https://media.giphy.com/media/1zYwlqyR2rg6A/giphy.gif", 
+        "https://media.giphy.com/media/1zYwlqyR2rg6A/giphy.gif",
         "https://media.giphy.com/media/keuNoOuTb1D4A/giphy.gif",
         "https://media.giphy.com/media/SW3PNayoSGXao/giphy.gif"
     ]
@@ -114,7 +117,7 @@ $(document).ready(function () {
         if (counter < questionArray.length) {
             clearInterval(intervalId);
             intervalId = setInterval(countDown, 1000);
-        }  
+        }
     }
 
     function clearMessage() {
@@ -130,14 +133,24 @@ $(document).ready(function () {
             $(".messageDiv").text("You ran out of time. Get ready for the next question!");
             $("#question").empty();
             $("#choices").empty();
-            var outOfTimeGif = $("<img>");
-            var gifSrc = outOfTimeArr[Math.floor(Math.random()*outOfTimeArr.length)];
-            outOfTimeGif.attr("src", gifSrc);
-            outOfTimeGif.appendTo(".gifArea");
+            if (counter < questionArray.length) {
+                var outOfTimeGif = $("<img>");
+                var gifSrc = outOfTimeArr[Math.floor(Math.random() * outOfTimeArr.length)];
+                outOfTimeGif.attr("src", gifSrc);
+                outOfTimeGif.appendTo(".gifArea");
+            }
             if (counter < questionArray.length) {
                 counter++;
             }
-            setTimeout(function() {
+            if (counter == questionArray.length) {
+                $("#correct").text(correct);
+                $("#incorrect").text(incorrect);
+                $("#results").show();
+                $(".messageDiv").hide();
+                $("#gifArea").hide();
+                stopTime();
+            }
+            setTimeout(function () {
                 clearGif()
                 clearMessage()
                 continueGame()
@@ -159,7 +172,7 @@ $(document).ready(function () {
             newQuestion();
         }
     }
-    
+
     function newQuestion() {
         var question = questionArray[counter];
         var option = optionsArray[counter];
@@ -170,14 +183,14 @@ $(document).ready(function () {
             btn.attr("choice", option[i]);
             btn.text(option[i]);
             $("#choices").append(btn);
-        }  
+        }
     }
 
     function clearGif() {
         $(".gifArea").empty();
     }
 
-    $(document).on("click", ".option", function() {             //target created button
+    $(document).on("click", ".option", function () {             //target created button
         var userAnswer = $(this).attr("choice");
         correctAnswer = answerArray[counter];
         console.log(userAnswer, correctAnswer);
@@ -188,10 +201,10 @@ $(document).ready(function () {
             $("#question").empty();
             $("#choices").empty();
             var rightGif = $("<img>");
-            var gifSrc = correctGifArr[Math.floor(Math.random()*correctGifArr.length)];
+            var gifSrc = correctGifArr[Math.floor(Math.random() * correctGifArr.length)];
             rightGif.attr("src", gifSrc);
             rightGif.appendTo(".gifArea");
-            setTimeout(function() {
+            setTimeout(function () {
                 clearGif()
                 continueGame()
             }, 1000 * 5);
@@ -199,16 +212,16 @@ $(document).ready(function () {
                 counter++;
             }
         }
-        else { 
+        else {
             incorrect++;
             stopTime();
             $("#question").empty();
             $("#choices").empty();
             var wrongGif = $("<img>");
-            var gifSrc = incorrectGifArr[Math.floor(Math.random()*incorrectGifArr.length)];
+            var gifSrc = incorrectGifArr[Math.floor(Math.random() * incorrectGifArr.length)];
             wrongGif.attr("src", gifSrc);
             wrongGif.appendTo(".gifArea");
-            setTimeout(function() {
+            setTimeout(function () {
                 clearGif()
                 continueGame()
             }, 1000 * 5);
@@ -217,15 +230,15 @@ $(document).ready(function () {
             }
         };
 
-    
+
         if (counter == questionArray.length) {
             $("#correct").text(correct);
             $("#incorrect").text(incorrect);
             $("#results").show();
             stopTime();
         }
-            
-        
+
+
 
     })
 
