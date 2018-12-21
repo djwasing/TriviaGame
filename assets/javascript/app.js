@@ -10,6 +10,7 @@ $(document).ready(function () {
     var counter = 0;
     var correctAnswer;
     $("#results").hide();
+    $("#resetBtn").hide();
 
 
     questionArray = [
@@ -239,7 +240,13 @@ $(document).ready(function () {
             $("#incorrect").text(incorrect);
             $("#results").show();
             stopTime();
+            $("#resetBtn").show();
         }
+
+
+        $("#resetBtn").on("click", function resetGame() {
+            location.reload();
+        })
 
 
 
